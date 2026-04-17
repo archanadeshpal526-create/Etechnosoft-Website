@@ -34,21 +34,21 @@ const SocialIcon = ({ type }) => {
 
 export default function TopInfoBar() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-white border-b border-gray-200">
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-white/5 border-b border-white/10 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-600 font-normal">
-          <a href="mailto:ethihaastech@gmail.com" className="hover:text-black transition-colors">
+        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-400 font-normal">
+          <a href="mailto:ethihaastech@gmail.com" className="hover:text-white transition-colors">
             ethihaastech@gmail.com
           </a>
           <span className="text-gray-600">|</span>
-          <a href="tel:+917672003606" className="hover:text-black transition-colors">
+          <a href="tel:+917672003606" className="hover:text-white transition-colors">
             +91 7672003606
           </a>
           <span className="text-gray-600">|</span>
           <span>Secunderabad, India</span>
         </div>
 
-        <div className="flex items-center gap-4 text-gray-600">
+        <div className="flex items-center gap-4 text-gray-400">
           {socialLinks.map((item) => (
             <a
               key={item.name}
@@ -56,7 +56,7 @@ export default function TopInfoBar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={item.name}
-              className="transition-colors hover:text-black"
+              className="transition-colors hover:text-white"
             >
               <SocialIcon type={item.type} />
             </a>
