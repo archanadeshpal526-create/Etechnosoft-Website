@@ -88,7 +88,7 @@ export default function Hero() {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.03 }}
-                className="px-4 py-3 rounded-xl text-sm font-medium text-center bg-white/15 backdrop-blur-sm text-gray-200 border border-white/20 hover:bg-white/20 hover:border-cyan-500/30 transition-all"
+                className="px-4 py-3 rounded-xl text-sm font-medium text-center bg-white/5 backdrop-blur-sm text-gray-200 border border-white/10 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
               >
                 {item}
               </motion.div>
