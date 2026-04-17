@@ -45,9 +45,9 @@ export default function WhyChooseUs() {
   const ref = useRef(null);
 
   return (
-    <section ref={ref} id="why-us" className="py-16 bg-[#030508]">
+    <section ref={ref} id="why-us" className="pt-8 pb-16 bg-[#030508]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6 items-start">
           {features.map((feature, index) => (
             <motion.div
               key={feature.id}

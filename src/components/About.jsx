@@ -27,9 +27,9 @@ export default function About() {
   }, [location]);
 
   return (
-    <section ref={ref} id="about" className="py-16 bg-[#030508]">
+    <section ref={ref} id="about" className="pt-8 pb-16 bg-[#030508]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
