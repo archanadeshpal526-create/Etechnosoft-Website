@@ -70,7 +70,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-gray-400 text-sm">Based in Secunderabad, India</span>
+            <span className="text-gray-500 text-xs font-normal opacity-80">Based in Secunderabad, India</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
