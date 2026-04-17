@@ -1,6 +1,34 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Code2, Settings, Zap } from 'lucide-react';
+
+const softwareDevCards = [
+  {
+    id: 'custom-development',
+    title: 'Custom Development',
+    desc: 'Build scalable and secure applications tailored to your business needs using modern technologies.',
+    icon: Code2,
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/20',
+  },
+  {
+    id: 'system-integration',
+    title: 'System Integration',
+    desc: 'Seamlessly integrate your applications with existing systems for better performance and workflow efficiency.',
+    icon: Settings,
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-500/20',
+  },
+  {
+    id: 'performance-optimization',
+    title: 'Performance Optimization',
+    desc: 'Enhance application speed, reliability, and user experience with continuous optimization and support.',
+    icon: Zap,
+    color: 'text-orange-400',
+    bg: 'bg-orange-500/20',
+  },
+];
 
 const services = [
   {
@@ -11,6 +39,7 @@ const services = [
     color: 'from-blue-500',
     bgImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
     tech: ['Python', 'React', 'Node.js', '.NET', 'Angular', 'Flutter', 'PostgreSQL', 'MS SQL', 'Docker', 'AWS', 'Azure', 'FastAPI'],
+    expanded: true,
   },
   {
     id: 'ai-operations',
@@ -145,6 +174,39 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mt-16"
+        >
+          <h3 className="text-xl font-semibold text-white mb-8 text-center">
+            Software <span className="text-cyan-400">Development</span>
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {softwareDevCards.map((card, index) => (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.02 }}
+                className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-blue-500/30 transition-all group cursor-pointer"
+              >
+                <div className={`w-12 h-12 ${card.bg} rounded-lg flex items-center justify-center mb-4`}>
+                  <card.icon className={`w-6 h-6 ${card.color}`} />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                  {card.title}
+                </h4>
+                <p className="text-gray-400 text-sm">{card.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
