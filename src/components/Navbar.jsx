@@ -1,14 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../assets/logo.png';
+
+const servicesDropdown = [
+  { name: 'Software Development', path: '/services', desc: 'Tailored solutions that scale' },
+  { name: 'Website Development', path: '/services', desc: 'Digital experiences that convert' },
+  { name: 'Cloud & DevOps', path: '/services', desc: 'Infrastructure that scales' },
+  { name: 'IT Staffing & Training', path: '/services', desc: 'Right talent, right when you need it' },
+  { name: 'HITL AI Operations', path: '/services', desc: '24/7 human validation for AI' },
+];
+
+const industriesDropdown = [
+  { name: 'Healthcare', path: '/industries', desc: 'Secure telehealth, HIPAA compliant' },
+  { name: 'Manufacturing', path: '/industries', desc: 'Streamlined operations' },
+  { name: 'Hospitality', path: '/industries', desc: 'Reservation systems' },
+  { name: 'Automotive', path: '/industries', desc: 'Connected car apps' },
+  { name: 'Construction', path: '/industries', desc: 'Project management' },
+  { name: 'Telecom', path: '/industries', desc: 'Network infrastructure' },
+  { name: 'Energy & Utilities', path: '/industries', desc: 'Smart grid technologies' },
+  { name: 'Entertainment', path: '/industries', desc: 'Interactive gaming apps' },
+];
 
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'Industries', path: '/industries' },
+  { name: 'Services', path: '/services', hasDropdown: true },
+  { name: 'Industries', path: '/industries', hasDropdown: true },
   { name: 'Why Us', path: '/why-us' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -16,16 +35,32 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const servicesRef = useRef(null);
+  const industriesRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target)) setServicesOpen(false);
+      if (industriesRef.current && !industriesRef.current.contains(e.target)) setIndustriesOpen(false);
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    setServicesOpen(false);
+    setIndustriesOpen(false);
+  }, [location.pathname]);
 
   const handleNavClick = (path) => {
     navigate(path);
@@ -38,9 +73,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-[#0a0f1c]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-black/20' 
-          : 'bg-transparent'
+        isScrolled ? 'bg-[#0a0f1c]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-black/20' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -49,20 +82,60 @@ export default function Navbar() {
         </button>
 
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => handleNavClick(link.path)}
-              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                location.pathname === link.path ? 'text-white' : 'text-gray-400 hover:text-white'
-              }`}
-            >
-              {link.name}
-              {location.pathname === link.path && (
-                <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full" layoutId="navDot" transition={{ type: "spring", stiffness: 500, damping: 30 }} />
-              )}
-            </button>
-          ))}
+          {navLinks.map((link) => {
+            const isServices = link.name === 'Services';
+            const isIndustries = link.name === 'Industries';
+            return (
+              <div key={link.name} className="relative" ref={isServices ? servicesRef : isIndustries ? industriesRef : null}>
+                {link.hasDropdown ? (
+                  <button
+                    onClick={() => {
+                      if (isServices) { setServicesOpen(!servicesOpen); setIndustriesOpen(false); }
+                      if (isIndustries) { setIndustriesOpen(!industriesOpen); setServicesOpen(false); }
+                    }}
+                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                      location.pathname === link.path ? 'text-white' : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown size={14} className={`transition-transform ${(isServices && servicesOpen) || (isIndustries && industriesOpen) ? 'rotate-180' : ''}`} />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleNavClick(link.path)}
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                      location.pathname === link.path ? 'text-white' : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    {link.name}
+                    {location.pathname === link.path && (
+                      <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full" layoutId="navDot" />
+                    )}
+                  </button>
+                )}
+                {isServices && servicesOpen && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-56 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                    {servicesDropdown.map((item) => (
+                      <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                        <div className="font-medium">{item.name}</div>
+                        <div className="text-xs text-gray-500">{item.desc}</div>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+                {isIndustries && industriesOpen && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-48 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                    {industriesDropdown.map((item) => (
+                      <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                        <div className="font-medium">{item.name}</div>
+                        <div className="text-xs text-gray-500">{item.desc}</div>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">
