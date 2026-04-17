@@ -206,13 +206,6 @@ export default function Services() {
         />
 
         <HitlSection />
-
-        <ServiceSection
-          title="Industries We Serve"
-          subtitle="Deep Domain Expertise Across Verticals"
-          cards={industries}
-          collapseKey="industries"
-        />
       </div>
     </section>
   );
