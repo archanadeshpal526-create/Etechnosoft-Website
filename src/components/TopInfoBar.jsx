@@ -35,8 +35,8 @@ const SocialIcon = ({ type }) => {
 export default function TopInfoBar() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] bg-white/5 border-b border-white/10 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-400 font-normal">
+      <div className="max-w-7xl mx-auto h-10 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400 font-normal whitespace-nowrap overflow-x-auto">
           <a href="mailto:ethihaastech@gmail.com" className="hover:text-white transition-colors">
             ethihaastech@gmail.com
           </a>
@@ -48,7 +48,7 @@ export default function TopInfoBar() {
           <span>Secunderabad, India</span>
         </div>
 
-        <div className="flex items-center gap-4 text-gray-400">
+        <div className="flex items-center gap-3 text-gray-400 shrink-0">
           {socialLinks.map((item) => (
             <a
               key={item.name}

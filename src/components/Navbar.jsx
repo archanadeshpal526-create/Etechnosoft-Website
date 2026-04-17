@@ -76,7 +76,7 @@ export default function Navbar() {
         isScrolled ? 'bg-[#0a0f1c]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-black/20' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <button onClick={() => handleNavClick('/')} className="flex items-center gap-2">
           <img src={Logo} alt="Ethihaas" className="h-12" />
         </button>
@@ -149,7 +149,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-[#0a0f1c]/95 backdrop-blur-xl border-t border-white/5">
-            <div className="px-6 py-4 flex flex-col gap-2">
+            <div className="px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <button key={link.name} onClick={() => handleNavClick(link.path)} className={`text-left px-4 py-3 rounded-lg transition-colors ${location.pathname === link.path ? 'text-white bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}>
                   {link.name}
