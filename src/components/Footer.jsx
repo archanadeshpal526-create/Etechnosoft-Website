@@ -36,12 +36,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#020204] border-t border-white/5">
+    <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <img src={Logo} alt="Ethihaas" className="h-14 mb-6" />
-            <p className="text-gray-500 max-w-md mb-6">
+            <p className="text-gray-600 max-w-md mb-6">
               Secunderabad-based tech company. We build software that solves real problems.
             </p>
             <div className="flex gap-4">
@@ -51,7 +51,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/10 transition-all"
+                  className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-100 transition-all"
                   aria-label={social.name}
                 >
                   <SocialIcon type={social.type} />
@@ -61,11 +61,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <h4 className="text-gray-800 font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
               {['About', 'Services', 'Industries', 'Why Us', 'Contact'].map((item) => (
                 <li key={item}>
-                  <Link to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-500 hover:text-white text-sm transition-colors">
+                  <Link to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-600 hover:text-black text-sm transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -74,8 +74,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <div className="space-y-3 text-sm text-gray-500">
+            <h4 className="text-gray-800 font-semibold mb-4">Contact</h4>
+            <div className="space-y-3 text-sm text-gray-600">
               <p>ethihaastech@gmail.com</p>
               <p>+91 7672003606</p>
               <p>Secunderabad, India</p>
@@ -83,11 +83,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-600 text-sm">© 2026 Ethihaas Technosoft. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-gray-600">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="#" className="hover:text-black transition-colors">Privacy</a>
+            <a href="#" className="hover:text-black transition-colors">Terms</a>
           </div>
         </div>
       </div>
