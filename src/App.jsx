@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import TopInfoBar from './components/TopInfoBar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,6 +13,7 @@ function App() {
   return (
     <Router>
       <div className="bg-[#0f172a] min-h-screen">
+        <TopInfoBar />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
