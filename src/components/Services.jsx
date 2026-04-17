@@ -1,99 +1,154 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Code2, Settings, Zap } from 'lucide-react';
+import { useEffect } from 'react';
+import { Code2, Settings, Zap, Globe, ShoppingCart, Shield, Monitor, Cpu, Layers, Cloud, Lock, Activity, Users, Search, CheckCircle, AlertTriangle, Phone, Eye, ArrowRight, Car, HardHat, Signal, Gamepad2, Heart, Star } from 'lucide-react';
 
 const softwareDevCards = [
-  {
-    id: 'custom-development',
-    title: 'Custom Development',
-    desc: 'Build scalable and secure applications tailored to your business needs using modern technologies.',
-    icon: Code2,
-    color: 'text-blue-400',
-    bg: 'bg-blue-500/20',
-  },
-  {
-    id: 'system-integration',
-    title: 'System Integration',
-    desc: 'Seamlessly integrate your applications with existing systems for better performance and workflow efficiency.',
-    icon: Settings,
-    color: 'text-cyan-400',
-    bg: 'bg-cyan-500/20',
-  },
-  {
-    id: 'performance-optimization',
-    title: 'Performance Optimization',
-    desc: 'Enhance application speed, reliability, and user experience with continuous optimization and support.',
-    icon: Zap,
-    color: 'text-orange-400',
-    bg: 'bg-orange-500/20',
-  },
+  { id: 'tailored', title: 'Tailored Solutions', desc: 'Responsive websites to native mobile apps, built for your specific business workflows.', icon: Code2, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'integration', title: 'Seamless Integration', desc: 'Expert system integration with existing software, optimized data handling and flow.', icon: Settings, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'productivity', title: 'Maximize Productivity', desc: 'Comprehensive training and continuous support for smooth implementation and full potential.', icon: Zap, color: 'text-orange-400', bg: 'bg-orange-500/20' },
 ];
 
-const services = [
-  {
-    id: 'software-dev',
-    title: 'Software Development',
-    desc: 'Full-stack custom applications, APIs, and automation systems built for your exact workflow.',
-    tags: ['Web', 'Mobile', 'APIs'],
-    color: 'from-blue-500',
-    bgImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
-    tech: ['Python', 'React', 'Node.js', '.NET', 'Angular', 'Flutter', 'PostgreSQL', 'MS SQL', 'Docker', 'AWS', 'Azure', 'FastAPI'],
-    expanded: true,
-  },
-  {
-    id: 'ai-operations',
-    title: 'AI Operations (HITL)',
-    desc: 'Human-in-the-loop validation for safety-critical AI systems.',
-    tags: ['24/7', '<30s Response'],
-    color: 'from-orange-500',
-    bgImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-    tech: ['Machine Learning', 'Computer Vision', 'NLP', 'Healthcare AI', 'Security AI'],
-  },
-  {
-    id: 'cloud-devops',
-    title: 'Cloud & DevOps',
-    desc: 'Scalable infrastructure with automated pipelines and enterprise-grade security.',
-    tags: ['AWS', 'Azure', 'GCP'],
-    color: 'from-cyan-500',
-    bgImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
-    tech: ['Cloud Migration', 'CI/CD', 'Kubernetes', 'Docker', 'Infrastructure as Code', 'Monitoring'],
-  },
-  {
-    id: 'it-staffing',
-    title: 'IT Staffing',
-    desc: 'Pre-vetted tech talent for projects or long-term team augmentation.',
-    tags: ['Contract', 'Full-time'],
-    color: 'from-green-500',
-    bgImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
-    tech: ['Python Devs', 'React Devs', 'Node Devs', '.NET Devs', 'Cloud Engineers', 'Data Scientists'],
-  },
-  {
-    id: 'ecommerce',
-    title: 'Website & E-Commerce',
-    desc: 'Modern websites and online stores with secure payment integrations.',
-    tags: ['Online Stores', 'CMS'],
-    color: 'from-purple-500',
-    bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-    tech: ['Shopify', 'WooCommerce', 'React', 'Next.js', 'Stripe', 'Payment Gateway'],
-  },
-  {
-    id: 'industry',
-    title: 'Industry Solutions',
-    desc: 'Custom software solutions tailored for specific industry needs.',
-    tags: ['Healthcare', 'Manufacturing'],
-    color: 'from-pink-500',
-    bgImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
-    tech: ['ERP', 'CRM', 'Inventory', 'Supply Chain', 'Analytics'],
-  },
+const websiteDevCards = [
+  { id: 'ecommerce', title: 'E-Commerce Solutions', desc: 'Custom e-commerce platforms with secure payments, robust inventory management, and personalized shopping experiences that drive sales.', icon: ShoppingCart, color: 'text-purple-400', bg: 'bg-purple-500/20' },
+  { id: 'custom-websites', title: 'Custom Websites', desc: 'Bespoke, responsive websites prioritizing user experience, accessibility, and performance across all devices.', icon: Globe, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'product-showcase', title: 'Product Showcases', desc: 'Compelling online product presentations with high-quality visuals, interactive elements, and conversion-optimized layouts.', icon: Monitor, color: 'text-green-400', bg: 'bg-green-500/20' },
+  { id: 'secure-payments', title: 'Secure Payments', desc: 'Enterprise-grade payment gateways that protect customer data, build trust, and ensure PCI compliance.', icon: Shield, color: 'text-pink-400', bg: 'bg-pink-500/20' },
 ];
 
-export default function Services() {
+const cloudDevopsCards = [
+  { id: 'cloud-migration', title: 'Cloud Migration', desc: 'Seamless transition from on-premise to cloud with zero downtime and optimized costs.', icon: Cloud, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'cicd', title: 'CI/CD Pipelines', desc: 'Automated build, test, and deployment pipelines for rapid, reliable software delivery.', icon: Layers, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'security', title: 'Security & Compliance', desc: 'Enterprise-grade security, encryption, and compliance with industry standards.', icon: Lock, color: 'text-orange-400', bg: 'bg-orange-500/20' },
+  { id: 'monitoring', title: 'Monitoring & Optimization', desc: '24/7 infrastructure monitoring, auto-scaling, and cost optimization.', icon: Activity, color: 'text-green-400', bg: 'bg-green-500/20' },
+];
+
+const staffingCards = [
+  { id: 'talent-sourcing', title: 'Talent Sourcing', desc: 'We locate and attract skilled IT professionals, matching expertise with your organization\'s specific needs and culture.', icon: Search, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'skill-assessment', title: 'Skill Assessment', desc: 'Rigorous evaluation of technical abilities, qualifications, and soft skills to ensure candidates exceed your requirements.', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'staff-augmentation', title: 'Staff Augmentation', desc: 'Temporary or permanent staffing solutions, seamlessly integrating skilled professionals to enhance your team\'s capabilities.', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/20' },
+];
+
+const hitlSteps = [
+  { id: 'detect', title: 'AI Detects', desc: 'Camera/sensor captures event', icon: Cpu, color: 'text-blue-400' },
+  { id: 'alert', title: 'Alert Generated', desc: 'Weapon/face/pose identified', icon: AlertTriangle, color: 'text-orange-400' },
+  { id: 'review', title: 'HITL Review', desc: 'Operator validates in <30 seconds', icon: Eye, color: 'text-cyan-400' },
+  { id: 'escalation', title: 'Escalation', desc: 'Emergency/staff/lockdown triggered', icon: Phone, color: 'text-red-400' },
+];
+
+const industries = [
+  { id: 'healthcare', title: 'Healthcare', desc: 'Secure telehealth, HIPAA compliant, EHR integration', icon: Heart, color: 'text-red-400', bg: 'bg-red-500/20' },
+  { id: 'manufacturing', title: 'Manufacturing', desc: 'Streamlined operations, optimized supply chains', icon: Cpu, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'hospitality', title: 'Hospitality', desc: 'Reservation systems, online booking, secure payments', icon: Star, color: 'text-yellow-400', bg: 'bg-yellow-500/20' },
+  { id: 'automotive', title: 'Automotive', desc: 'Connected car apps, real-time navigation', icon: Car, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'construction', title: 'Construction', desc: 'Project management, better collaboration', icon: HardHat, color: 'text-orange-400', bg: 'bg-orange-500/20' },
+  { id: 'telecom', title: 'Telecom', desc: 'Next-gen network infrastructure, enhanced reliability', icon: Signal, color: 'text-green-400', bg: 'bg-green-500/20' },
+  { id: 'energy', title: 'Energy & Utilities', desc: 'Smart grid technologies, optimized distribution', icon: Zap, color: 'text-yellow-400', bg: 'bg-yellow-500/20' },
+  { id: 'entertainment', title: 'Entertainment', desc: 'Interactive gaming apps, immersive experiences', icon: Gamepad2, color: 'text-purple-400', bg: 'bg-purple-500/20' },
+];
+
+function ServiceSection({ title, subtitle, description, cards, collapseKey }) {
+  const ref = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end center"] });
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  useEffect(() => {
+    if (location.hash === `#${collapseKey}`) {
+      ref.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location, collapseKey]);
+
+  const colClass = cards.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4';
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="mt-20"
+      id={collapseKey}
+    >
+      <div className="text-center mb-8">
+        <h3 className="text-2xl md:text-3xl font-bold text-white">{title}</h3>
+        {subtitle && <p className="text-cyan-400 text-lg mt-1">{subtitle}</p>}
+        {description && <p className="text-gray-400 mt-3 max-w-2xl mx-auto">{description}</p>}
+      </div>
+      <div className={`grid ${colClass} gap-6`}>
+        {cards.map((card, index) => (
+          <motion.div
+            key={card.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-cyan-500/30 transition-all cursor-pointer group"
+            onClick={() => navigate(`/services#${card.id}`)}
+          >
+            <div className={`w-12 h-12 ${card.bg} rounded-lg flex items-center justify-center mb-4`}>
+              <card.icon className={`w-6 h-6 ${card.color}`} />
+            </div>
+            <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">{card.title}</h4>
+            <p className="text-gray-400 text-sm">{card.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+function HitlSection() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="mt-20"
+    >
+      <div className="text-center mb-8">
+        <h3 className="text-2xl md:text-3xl font-bold text-white">Human-in-the-Loop AI Operations</h3>
+        <p className="text-cyan-400 text-lg mt-1">24/7 human validation for safety-critical AI systems</p>
+      </div>
+
+      <div className="grid md:grid-cols-4 gap-4 mb-8">
+        {hitlSteps.map((step, index) => (
+          <motion.div
+            key={step.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.15, duration: 0.5 }}
+            className="text-center"
+          >
+            <div className={`w-16 h-16 ${step.color.replace('text-', 'bg-').replace('-400', '-500/20')} rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <step.icon className={`w-8 h-8 ${step.color}`} />
+            </div>
+            <h4 className="text-white font-semibold">{step.title}</h4>
+            <p className="text-gray-400 text-sm mt-1">{step.desc}</p>
+            {index < hitlSteps.length - 1 && (
+              <ArrowRight className="w-5 h-5 text-gray-600 mx-auto mt-4 hidden md:block" />
+            )}
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-4">
+        {['<30s Response Time', '24/7/365 Coverage', '60–70% Cost Savings'].map((highlight, i) => (
+          <span key={i} className="px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-medium">
+            {highlight}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Services() {
+  const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
@@ -106,7 +161,7 @@ export default function Services() {
   }, [location]);
 
   return (
-    <section ref={ref} id="services" className="py-24 bg-[#030508]">
+    <section id="services" className="py-16 bg-[#030508]">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -115,98 +170,49 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4">
-            Our <span className="text-cyan-400 font-bold">Capabilities</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Our <span className="text-cyan-400 font-bold">Services</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto">Comprehensive technology solutions tailored to your business needs.</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              id={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative h-[280px] rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-blue-500/40 transition-all"
-              onClick={() => navigate(`/services#${service.id}`)}
-            >
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${service.bgImage})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030508] via-[#030508]/50 to-transparent" />
+        <ServiceSection
+          title="Software Development"
+          subtitle="Tailored Solutions That Scale With Your Business"
+          description="From Idea to Production-Ready Software. We build full-stack applications, APIs, and automation systems tailored to your exact business needs."
+          cards={softwareDevCards}
+          collapseKey="software-development"
+        />
 
-              <div className="absolute top-4 left-4">
-                <h3 className="text-xl font-bold text-white drop-shadow-lg">
-                  {service.title}
-                </h3>
-              </div>
+        <ServiceSection
+          title="Website Development"
+          subtitle="Digital Experiences That Convert"
+          cards={websiteDevCards}
+          collapseKey="website-development"
+        />
 
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="text-white text-sm mb-3 font-medium line-clamp-2">{service.desc}</p>
+        <ServiceSection
+          title="Cloud & DevOps Services"
+          subtitle="Infrastructure That Scales When You Do"
+          description="Scalable, secure cloud infrastructure designed for modern enterprises."
+          cards={cloudDevopsCards}
+          collapseKey="cloud-devops"
+        />
 
-                {service.tech && (
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.tech.slice(0, 5).map((t, i) => (
-                      <span key={i} className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-md">
-                        {t}
-                      </span>
-                    ))}
-                    {service.tech.length > 5 && (
-                      <span className="px-2 py-1 bg-white/5 text-gray-500 text-xs rounded-md">
-                        +{service.tech.length - 5}
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
+        <ServiceSection
+          title="IT Staffing & Training"
+          subtitle="The Right Talent, Right When You Need It"
+          cards={staffingCards}
+          collapseKey="it-staffing"
+        />
 
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <HitlSection />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-16"
-        >
-          <h3 className="text-xl font-semibold text-white mb-8 text-center">
-            Software <span className="text-cyan-400">Development</span>
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {softwareDevCards.map((card, index) => (
-              <motion.div
-                key={card.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.02 }}
-                className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-blue-500/30 transition-all group cursor-pointer"
-              >
-                <div className={`w-12 h-12 ${card.bg} rounded-lg flex items-center justify-center mb-4`}>
-                  <card.icon className={`w-6 h-6 ${card.color}`} />
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                  {card.title}
-                </h4>
-                <p className="text-gray-400 text-sm">{card.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <ServiceSection
+          title="Industries We Serve"
+          subtitle="Deep Domain Expertise Across Verticals"
+          cards={industries}
+          collapseKey="industries"
+        />
       </div>
     </section>
   );
