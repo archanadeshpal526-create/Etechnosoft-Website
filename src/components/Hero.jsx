@@ -75,7 +75,6 @@ export default function Hero() {
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
             <span className="text-cyan-400">{displayText}</span>
-            <span className="animate-pulse">|</span>
           </h1>
 
           <motion.div
