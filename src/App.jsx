@@ -15,14 +15,16 @@ function App() {
       <div className="bg-[#0f172a] min-h-screen">
         <TopInfoBar />
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/industries" element={<IndustriesPage />} />
-          <Route path="/why-us" element={<WhyUsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+        <main className="pt-[120px]">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/industries" element={<IndustriesPage />} />
+            <Route path="/why-us" element={<WhyUsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>
