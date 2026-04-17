@@ -11,36 +11,20 @@ const bgImages = [
 export default function Hero() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayText1, setDisplayText1] = useState('');
-  const [displayText2, setDisplayText2] = useState('');
-  const text1 = 'Transform Ideas Into';
-  const text2 = 'Scalable Digital Solutions';
+  const [displayText, setDisplayText] = useState('');
+  const text = 'Transform Your Business with Technology That Delivers';
   
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
-      if (index <= text1.length) {
-        setDisplayText1(text1.slice(0, index));
+      if (index <= text.length) {
+        setDisplayText(text.slice(0, index));
         index++;
       } else {
         clearInterval(timer);
-        startSecondText();
       }
-    }, 80);
-    
-    const startSecondText = () => {
-      let index2 = 0;
-      const timer2 = setInterval(() => {
-        if (index2 <= text2.length) {
-          setDisplayText2(text2.slice(0, index2));
-          index2++;
-        } else {
-          clearInterval(timer2);
-        }
-      }, 80);
-    };
-    
-    return () => { clearInterval(timer); };
+    }, 60);
+    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -90,33 +74,14 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
-            {displayText1}
-            <br />
-            <span className="text-cyan-400 font-bold">
-              {displayText2}
-            </span>
+            <span className="text-cyan-400">{displayText}</span>
+            <span className="animate-pulse">|</span>
           </h1>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 mb-16"
-          >
-            {['Custom Software', 'AI Operations', 'Cloud Solutions'].map((item, index) => (
-              <span
-                key={index}
-                className="px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-gray-300 border border-white/10"
-              >
-                {item}
-              </span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.button
