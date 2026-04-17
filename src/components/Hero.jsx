@@ -82,16 +82,15 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
+            className="flex flex-wrap justify-center gap-3 mb-8"
           >
             {['Custom Software', 'Website & E-Commerce', 'HITL AI Operations', 'Cloud & DevOps'].map((item, index) => (
-              <motion.div
+              <span
                 key={index}
-                whileHover={{ scale: 1.03 }}
-                className="px-4 py-4 rounded-xl text-sm font-semibold text-center bg-white/5 backdrop-blur-sm text-gray-200 border border-white/10 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
+                className="px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-gray-300 border border-white/10"
               >
                 {item}
-              </motion.div>
+              </span>
             ))}
           </motion.div>
 
