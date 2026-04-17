@@ -82,6 +82,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
+            className="flex flex-wrap justify-center gap-3 mb-8"
+          >
+            {['Custom Software', 'Website & E-Commerce', 'AI HITL Operations', 'Cloud & DevOps'].map((item, index) => (
+              <span
+                key={index}
+                className="px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-gray-300 border border-white/10"
+              >
+                {item}
+              </span>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.button
