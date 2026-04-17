@@ -82,13 +82,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="grid w-full max-w-5xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8"
+            className="flex flex-wrap justify-center gap-3 mb-8"
           >
             {['Custom Software', 'Website & E-Commerce', 'HITL AI Operations', 'Cloud & DevOps'].map((item, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.03 }}
-                className="px-4 py-3 rounded-xl text-sm font-medium text-center bg-white/5 backdrop-blur-sm text-gray-200 border border-white/10 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
+                className="px-4 py-2 rounded-full text-sm font-medium text-center bg-white text-gray-800 transition-all"
               >
                 {item}
               </motion.div>
@@ -103,13 +103,13 @@ export default function Hero() {
           >
             <motion.button
               onClick={() => navigate('/services')}
-              className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform"
+              className="px-8 py-4 bg-transparent text-white font-semibold rounded-full border border-white hover:scale-105 transition-transform"
             >
               View Services
             </motion.button>
             <motion.button
               onClick={() => navigate('/contact')}
-              className="px-8 py-4 rounded-full text-white font-medium border border-white/20 hover:bg-white/10 transition-colors"
+              className="px-8 py-4 rounded-full bg-transparent text-white font-medium border border-white hover:bg-white/10 transition-colors"
             >
               Let's Talk
             </motion.button>
