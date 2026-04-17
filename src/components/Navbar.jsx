@@ -5,22 +5,22 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../assets/logo.png';
 
 const servicesDropdown = [
-  { name: 'Software Development', path: '/services', desc: 'Tailored solutions that scale' },
-  { name: 'Website Development', path: '/services', desc: 'Digital experiences that convert' },
-  { name: 'Cloud & DevOps', path: '/services', desc: 'Infrastructure that scales' },
-  { name: 'IT Staffing & Training', path: '/services', desc: 'Right talent, right when you need it' },
-  { name: 'HITL AI Operations', path: '/services', desc: '24/7 human validation for AI' },
+  { name: 'Software Development', path: '/services' },
+  { name: 'Website Development', path: '/services' },
+  { name: 'Cloud & DevOps', path: '/services' },
+  { name: 'IT Staffing & Training', path: '/services' },
+  { name: 'HITL AI Operations', path: '/services' },
 ];
 
 const industriesDropdown = [
-  { name: 'Healthcare', path: '/industries', desc: 'Secure telehealth, HIPAA compliant' },
-  { name: 'Manufacturing', path: '/industries', desc: 'Streamlined operations' },
-  { name: 'Hospitality', path: '/industries', desc: 'Reservation systems' },
-  { name: 'Automotive', path: '/industries', desc: 'Connected car apps' },
-  { name: 'Construction', path: '/industries', desc: 'Project management' },
-  { name: 'Telecom', path: '/industries', desc: 'Network infrastructure' },
-  { name: 'Energy & Utilities', path: '/industries', desc: 'Smart grid technologies' },
-  { name: 'Entertainment', path: '/industries', desc: 'Interactive gaming apps' },
+  { name: 'Healthcare', path: '/industries' },
+  { name: 'Manufacturing', path: '/industries' },
+  { name: 'Hospitality', path: '/industries' },
+  { name: 'Automotive', path: '/industries' },
+  { name: 'Construction', path: '/industries' },
+  { name: 'Telecom', path: '/industries' },
+  { name: 'Energy & Utilities', path: '/industries' },
+  { name: 'Entertainment', path: '/industries' },
 ];
 
 const navLinks = [
@@ -114,21 +114,19 @@ export default function Navbar() {
                   </button>
                 )}
                 {isServices && servicesOpen && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-56 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-48 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
                     {servicesDropdown.map((item) => (
                       <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
-                        <div className="font-medium">{item.name}</div>
-                        <div className="text-xs text-gray-500">{item.desc}</div>
+                        {item.name}
                       </button>
                     ))}
                   </motion.div>
                 )}
                 {isIndustries && industriesOpen && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-48 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-40 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
                     {industriesDropdown.map((item) => (
                       <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
-                        <div className="font-medium">{item.name}</div>
-                        <div className="text-xs text-gray-500">{item.desc}</div>
+                        {item.name}
                       </button>
                     ))}
                   </motion.div>
