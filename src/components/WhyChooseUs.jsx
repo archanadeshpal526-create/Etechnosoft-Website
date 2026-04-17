@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
   return (
     <section ref={ref} id="why-us" className="pt-8 pb-16 bg-[#030508]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -56,16 +56,18 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-cyan-500/30 transition-all cursor-pointer group"
+              className="h-full p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-cyan-500/30 transition-all cursor-pointer group flex flex-col justify-between items-start text-left"
             >
-              <div className={`w-14 h-14 ${feature.bg} rounded-lg flex items-center justify-center mb-4`}>
-                <feature.icon className={`w-7 h-7 ${feature.color}`} />
+              <div className="flex flex-col items-start space-y-3">
+                <div className={`w-14 h-14 ${feature.bg} rounded-lg flex items-center justify-center`}>
+                  <feature.icon className={`w-7 h-7 ${feature.color}`} />
+                </div>
+                <h3 className="text-4xl font-bold text-white">{feature.highlight}</h3>
+                <h4 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-400 text-sm">{feature.description}</p>
               </div>
-              <h3 className="text-4xl font-bold text-white mb-1">{feature.highlight}</h3>
-              <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                {feature.title}
-              </h4>
-              <p className="text-gray-400 text-sm">{feature.description}</p>
             </motion.div>
           ))}
         </div>
