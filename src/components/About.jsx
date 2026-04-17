@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Users, Clock, TrendingUp, Headphones } from 'lucide-react';
 
@@ -18,7 +18,6 @@ const aboutContent = {
 
 export default function About() {
   const ref = useRef(null);
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -30,19 +29,6 @@ export default function About() {
   return (
     <section ref={ref} id="about" className="py-16 bg-[#030508]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            About <span className="text-cyan-400">Ethihaas Technosoft</span>
-          </h2>
-          <p className="text-cyan-400 text-lg mt-2">Your Full-Service Technology Partner</p>
-        </motion.div>
-
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
