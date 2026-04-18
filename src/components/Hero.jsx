@@ -35,11 +35,11 @@ export default function Hero() {
         muted
         playsInline
         preload="metadata"
-        className="absolute inset-0 hidden md:block h-full w-full object-cover pointer-events-none [filter:brightness(0.48)_blur(1.5px)] opacity-70"
+        className="absolute inset-0 hidden md:block h-full w-full object-cover pointer-events-none [filter:brightness(0.7)_blur(1px)] opacity-85"
       >
         <source src={heroVideoSrc} type="video/mp4" />
       </motion.video>
-      <div className="absolute inset-0 bg-[#030508]/50" />
+      <div className="absolute inset-0 bg-[#030508]/40" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/35 via-[#030508]/45 to-[#030508]/60" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
