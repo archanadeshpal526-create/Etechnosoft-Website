@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
   const ref = useRef(null);
 
   return (
-    <section ref={ref} id="why-us" className="py-24 bg-[#040b18]">
+    <section ref={ref} id="why-us" className="pt-16 pb-24 bg-[#040b18]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
