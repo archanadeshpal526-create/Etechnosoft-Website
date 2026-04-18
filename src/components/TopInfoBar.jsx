@@ -36,7 +36,7 @@ const SocialIcon = ({ type }) => {
 
 export default function TopInfoBar() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-white/10 border-b border-white/10 backdrop-blur-md">
+    <div data-top-info-bar className="fixed top-0 left-0 right-0 z-[60] bg-white/10 border-b border-white/10 backdrop-blur-md">
       <div className="max-w-7xl mx-auto h-10 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 font-normal whitespace-nowrap overflow-x-auto">
           <a href="mailto:ethihaastech@gmail.com" className="hover:text-white transition-colors inline-flex items-center gap-1.5">

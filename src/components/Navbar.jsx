@@ -42,6 +42,14 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const getHeaderOffset = () => {
+    const topBar = document.querySelector('[data-top-info-bar]');
+    const navBar = document.querySelector('[data-main-navbar]');
+    const topBarHeight = topBar ? topBar.getBoundingClientRect().height : 0;
+    const navBarHeight = navBar ? navBar.getBoundingClientRect().height : 0;
+    return Math.ceil(topBarHeight + navBarHeight + 12);
+  };
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -68,7 +76,7 @@ export default function Navbar() {
     if (targetHash && location.pathname === targetPath) {
       const element = document.getElementById(targetHash);
       if (element) {
-        const top = element.getBoundingClientRect().top + window.pageYOffset - 140;
+        const top = element.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
         window.scrollTo({ top, behavior: 'smooth' });
       }
       window.history.replaceState(null, '', `${targetPath}#${targetHash}`);
@@ -87,6 +95,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
+      data-main-navbar
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}

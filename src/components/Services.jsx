@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Code2, Settings, Zap, Globe, ShoppingCart, Shield, Monitor, Cpu, Layers, Cloud, Lock, Activity, Users, Search, CheckCircle, AlertTriangle, Phone, Eye, Car, HardHat, Signal, Gamepad2, Heart, Star } from 'lucide-react';
 
 const softwareDevCards = [
@@ -49,21 +47,12 @@ const industries = [
 ];
 
 function ServiceSection({ title, subtitle, description, cards, collapseKey }) {
-  const ref = useRef(null);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash === `#${collapseKey}`) {
-      ref.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [location, collapseKey]);
 
   const colClass = cards.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4';
 
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -147,19 +136,6 @@ function HitlSection() {
 }
 
 export default function Services() {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        const top = element.getBoundingClientRect().top + window.pageYOffset - 140;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }
-  }, [location]);
-
   return (
     <section id="services" className="py-16 bg-[#030508]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
