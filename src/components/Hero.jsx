@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 
-const heroVideoSrc = '/hero-background.mp4';
+const heroVideoSrc = '/hero-bg.mp4';
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-[#030508]">
+      <div className="absolute inset-0 md:hidden bg-[radial-gradient(circle_at_20%_20%,rgba(6,182,212,0.18),transparent_35%),radial-gradient(circle_at_80%_15%,rgba(59,130,246,0.16),transparent_40%),linear-gradient(180deg,#030508_0%,#071426_55%,#030508_100%)]" />
       <motion.video
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -34,7 +35,7 @@ export default function Hero() {
         muted
         playsInline
         preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover pointer-events-none [filter:brightness(0.5)_blur(1.5px)] opacity-70"
+        className="absolute inset-0 hidden md:block h-full w-full object-cover pointer-events-none [filter:brightness(0.48)_blur(1.5px)] opacity-70"
       >
         <source src={heroVideoSrc} type="video/mp4" />
       </motion.video>
