@@ -16,7 +16,6 @@ const metrics = [
     title: 'HITL Operations',
     description: 'Continuous human-validated AI workflows for critical decision environments.',
     icon: Clock,
-    featured: true,
   },
   {
     value: '8+',
@@ -81,11 +80,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.22 + index * 0.1, duration: 0.45, ease: 'easeOut' }}
                 whileHover={{ scale: 1.02, y: -3 }}
-                className={`h-full p-6 backdrop-blur-md border rounded-2xl transition-all duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.22)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.32)] flex flex-col items-start ${
-                  metric.featured
-                    ? 'bg-cyan-400/10 border-cyan-300/35'
-                    : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-cyan-500/30'
-                }`}
+                className="h-full p-6 backdrop-blur-md border rounded-2xl transition-all duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.22)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.32)] flex flex-col items-start bg-white/5 border-white/10 hover:bg-white/10 hover:border-cyan-500/30"
               >
                 <div className="w-10 h-10 rounded-xl bg-cyan-400/20 border border-cyan-300/30 flex items-center justify-center mb-4">
                   <metric.icon className="w-5 h-5 text-cyan-300" />
