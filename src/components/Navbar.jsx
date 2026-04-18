@@ -138,7 +138,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <button onClick={() => handleNavClick('/contact')} className="hidden md:block px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-105">
-            Contact Us
+            Get Started
           </button>
           <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors">
             {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -156,7 +156,7 @@ export default function Navbar() {
                 </button>
               ))}
               <button onClick={() => handleNavClick('/contact')} className="mt-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-medium text-center">
-                Contact Us
+                Get Started
               </button>
             </div>
           </motion.div>
