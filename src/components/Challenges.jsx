@@ -47,8 +47,9 @@ export default function Challenges() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Challenges We <span className="text-cyan-400">Solve</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            <span className="text-white">Challenges</span>{' '}
+            <span className="text-cyan-400">We Solve</span>
           </h2>
           <p className="text-cyan-400 text-lg mt-2">Helping businesses overcome technology, talent, and operational barriers.</p>
         </motion.div>
