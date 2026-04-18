@@ -3,15 +3,10 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 
-const bgImages = [
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&q=80',
-  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80',
-  'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80',
-];
+const heroVideoSrc = '/hero-background.mp4';
 
 export default function Hero() {
   const navigate = useNavigate();
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const text = 'Transform Your Business with Technology That Delivers';
   
@@ -28,39 +23,23 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % bgImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-[#030508]">
-      {bgImages.map((img, index) => (
-        <div
-          key={index}
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
-          style={{
-            backgroundImage: `url(${img})`,
-            opacity: index === currentIndex ? 0.8 : 0,
-            transition: 'opacity 1.5s ease-in-out'
-          }}
-        />
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/60 via-[#030508]/40 to-[#030508]" />
-      
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-        {bgImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              currentIndex === index ? 'bg-blue-500 w-8' : 'bg-white/30'
-            }`}
-          />
-        ))}
-      </div>
+      <motion.video
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.1, ease: 'easeOut' }}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none [filter:brightness(0.5)_blur(1.5px)] opacity-70"
+      >
+        <source src={heroVideoSrc} type="video/mp4" />
+      </motion.video>
+      <div className="absolute inset-0 bg-[#030508]/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/35 via-[#030508]/45 to-[#030508]/60" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <motion.div
