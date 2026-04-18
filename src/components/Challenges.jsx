@@ -47,10 +47,7 @@ export default function Challenges() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold">
-            <span className="text-white">Challenges</span>{' '}
-            <span className="text-cyan-400">We Solve</span>
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-cyan-400">Challenges We Solve</h2>
           <p className="text-white text-lg mt-2">Helping businesses overcome complex technology, talent, and operational challenges with scalable and reliable solutions.</p>
         </motion.div>
 
