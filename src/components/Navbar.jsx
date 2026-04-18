@@ -73,7 +73,11 @@ export default function Navbar() {
       }
       window.history.replaceState(null, '', `${targetPath}#${targetHash}`);
     } else {
-      navigate(path);
+      if (targetHash) {
+        navigate({ pathname: targetPath, hash: `#${targetHash}` });
+      } else {
+        navigate(path);
+      }
     }
 
     setIsMobileOpen(false);
