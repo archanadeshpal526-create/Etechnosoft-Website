@@ -114,7 +114,7 @@ function HitlSection() {
         <p className="text-cyan-400 text-lg mt-1">24/7 human validation for safety-critical AI systems</p>
       </div>
 
-      <div className="grid md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {hitlSteps.map((step, index) => (
           <motion.div
             key={step.id}
@@ -122,7 +122,8 @@ function HitlSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.15, duration: 0.5 }}
-            className="text-center"
+            whileHover={{ scale: 1.02, y: -4 }}
+            className="h-full p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-cyan-500/30 transition-all text-center"
           >
             <div className={`w-16 h-16 ${step.color.replace('text-', 'bg-').replace('-400', '-500/20')} rounded-full flex items-center justify-center mx-auto mb-4`}>
               <step.icon className={`w-8 h-8 ${step.color}`} />
