@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const socialLinks = [
   { name: 'LinkedIn', type: 'linkedin', href: 'https://www.linkedin.com/' },
@@ -48,11 +48,6 @@ export default function TopInfoBar() {
             <Phone className="w-3.5 h-3.5" />
             <span>+91 7672003606</span>
           </a>
-          <span className="text-gray-400">|</span>
-          <span className="inline-flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5" />
-            <span>Secunderabad, India</span>
-          </span>
         </div>
 
         <div className="flex items-center gap-3 text-gray-400 shrink-0">
