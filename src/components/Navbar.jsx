@@ -42,14 +42,6 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const getHeaderOffset = () => {
-    const topBar = document.querySelector('[data-top-info-bar]');
-    const navBar = document.querySelector('[data-main-navbar]');
-    const topBarHeight = topBar ? topBar.getBoundingClientRect().height : 0;
-    const navBarHeight = navBar ? navBar.getBoundingClientRect().height : 0;
-    return Math.ceil(topBarHeight + navBarHeight + 12);
-  };
-
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -76,8 +68,7 @@ export default function Navbar() {
     if (targetHash && location.pathname === targetPath) {
       const element = document.getElementById(targetHash);
       if (element) {
-        const top = element.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
-        window.scrollTo({ top, behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       window.history.replaceState(null, '', `${targetPath}#${targetHash}`);
     } else {
