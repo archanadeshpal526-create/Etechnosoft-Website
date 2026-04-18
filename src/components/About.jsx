@@ -5,10 +5,31 @@ import { useEffect } from 'react';
 import { Users, Clock, TrendingUp, Headphones } from 'lucide-react';
 
 const metrics = [
-  { value: '6+', label: 'Service Lines', icon: Users },
-  { value: '24/7', label: 'HITL Operations', icon: Clock },
-  { value: '8+', label: 'Industry Verticals', icon: TrendingUp },
-  { value: '100%', label: 'Client Focus', icon: Headphones },
+  {
+    value: '6+',
+    title: 'Service Lines',
+    description: 'Comprehensive delivery across software, cloud, staffing, and AI operations.',
+    icon: Users,
+  },
+  {
+    value: '24/7',
+    title: 'HITL Operations',
+    description: 'Continuous human-validated AI workflows for critical decision environments.',
+    icon: Clock,
+    featured: true,
+  },
+  {
+    value: '8+',
+    title: 'Industry Verticals',
+    description: 'Domain experience spanning regulated and high-performance sectors.',
+    icon: TrendingUp,
+  },
+  {
+    value: '100%',
+    title: 'Client Focus',
+    description: 'Execution built around transparency, accountability, and long-term outcomes.',
+    icon: Headphones,
+  },
 ];
 
 const aboutContent = {
@@ -50,20 +71,28 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
             {metrics.map((metric, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-center hover:bg-white/10 hover:border-cyan-500/30 transition-all"
+                transition={{ delay: 0.22 + index * 0.1, duration: 0.45, ease: 'easeOut' }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className={`h-full p-6 backdrop-blur-md border rounded-2xl transition-all duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.22)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.32)] flex flex-col items-start ${
+                  metric.featured
+                    ? 'bg-cyan-400/10 border-cyan-300/35'
+                    : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-cyan-500/30'
+                }`}
               >
-                <metric.icon className="w-6 h-6 text-cyan-400 mb-2 mx-auto" />
-                <h3 className="text-3xl font-bold text-white">{metric.value}</h3>
-                <p className="text-white font-medium mt-1">{metric.label}</p>
+                <div className="w-10 h-10 rounded-xl bg-cyan-400/20 border border-cyan-300/30 flex items-center justify-center mb-4">
+                  <metric.icon className="w-5 h-5 text-cyan-300" />
+                </div>
+                <h3 className="text-3xl font-bold text-white leading-none">{metric.value}</h3>
+                <p className="text-white font-semibold mt-3">{metric.title}</p>
+                <p className="text-slate-300 text-sm leading-relaxed mt-2">{metric.description}</p>
               </motion.div>
             ))}
           </motion.div>
