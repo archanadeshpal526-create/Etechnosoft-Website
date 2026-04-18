@@ -169,7 +169,7 @@ export default function Services() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            <span className="text-blue-500 font-bold">Our Services</span>
+            <span className="text-cyan-400 font-bold">Our Services</span>
           </h2>
         </motion.div>
 
