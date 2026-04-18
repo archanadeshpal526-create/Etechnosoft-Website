@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { MapPin } from 'lucide-react';
 
 const bgImages = [
   'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&q=80',
@@ -69,7 +70,7 @@ export default function Hero() {
           className="text-center px-4"
         >
           <div className="inline-flex items-center gap-1.5 px-3 py-2 bg-white/5 border border-white/10 rounded-full">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <MapPin className="w-3.5 h-3.5 text-cyan-300" />
             <span className="text-gray-300 text-sm font-normal opacity-90">Based in Secunderabad, India</span>
           </div>
 
