@@ -6,8 +6,8 @@ const features = [
   {
     id: 'results',
     highlight: '100%',
-    title: 'Proven Results',
-    description: 'Track record of delivering projects on time, on budget, with measurable business outcomes.',
+    title: 'Execution You Can Trust',
+    description: 'Projects delivered with clear milestones, predictable timelines, and measurable business impact.',
     icon: CheckCircle,
     color: 'text-green-400',
     bg: 'bg-green-500/20',
@@ -15,8 +15,8 @@ const features = [
   {
     id: 'team',
     highlight: '50+',
-    title: 'Skilled Team',
-    description: 'Highly experienced professionals across software, cloud, AI, and staffing domains.',
+    title: 'Specialized Technical Talent',
+    description: 'Cross-functional experts in software, cloud, AI operations, and team augmentation.',
     icon: Users,
     color: 'text-blue-400',
     bg: 'bg-blue-500/20',
@@ -24,8 +24,8 @@ const features = [
   {
     id: 'delivery',
     highlight: '<30',
-    title: 'Timely Delivery',
-    description: 'Agile methodology ensures rapid iterations, transparent communication, and on-schedule launches.',
+    title: 'Faster Delivery Cycles',
+    description: 'Lean delivery model with short iterations, transparent reporting, and release discipline.',
     icon: Clock,
     color: 'text-cyan-400',
     bg: 'bg-cyan-500/20',
@@ -33,8 +33,8 @@ const features = [
   {
     id: 'partnership',
     highlight: '24/7',
-    title: 'Dedicated Partnership',
-    description: "We don't just deliver code — we become an extension of your team, invested in your success.",
+    title: 'Long-Term Delivery Partner',
+    description: 'Proactive support model aligned to your priorities, risk controls, and growth roadmap.',
     icon: Headphones,
     color: 'text-purple-400',
     bg: 'bg-purple-500/20',
