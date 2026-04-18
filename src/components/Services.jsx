@@ -5,36 +5,36 @@ import { useEffect } from 'react';
 import { Code2, Settings, Zap, Globe, ShoppingCart, Shield, Monitor, Cpu, Layers, Cloud, Lock, Activity, Users, Search, CheckCircle, AlertTriangle, Phone, Eye, ArrowRight, Car, HardHat, Signal, Gamepad2, Heart, Star } from 'lucide-react';
 
 const softwareDevCards = [
-  { id: 'tailored', title: 'Tailored Solutions', desc: 'Responsive websites to native mobile apps, built for your specific business workflows.', icon: Code2, color: 'text-blue-400', bg: 'bg-blue-500/20' },
-  { id: 'integration', title: 'Seamless Integration', desc: 'Expert system integration with existing software, optimized data handling and flow.', icon: Settings, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
-  { id: 'productivity', title: 'Maximize Productivity', desc: 'Comprehensive training and continuous support for smooth implementation and full potential.', icon: Zap, color: 'text-orange-400', bg: 'bg-orange-500/20' },
+  { id: 'tailored', title: 'Tailored Solutions', desc: 'Web and mobile solutions built around your core workflows and business priorities.', icon: Code2, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'integration', title: 'Seamless Integration', desc: 'Connect new applications with existing systems for reliable data flow and operations.', icon: Settings, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'productivity', title: 'Maximize Productivity', desc: 'Structured enablement and support to drive adoption and measurable performance gains.', icon: Zap, color: 'text-orange-400', bg: 'bg-orange-500/20' },
 ];
 
 const websiteDevCards = [
-  { id: 'ecommerce', title: 'E-Commerce Solutions', desc: 'Custom e-commerce platforms with secure payments, robust inventory management, and personalized shopping experiences that drive sales.', icon: ShoppingCart, color: 'text-purple-400', bg: 'bg-purple-500/20' },
-  { id: 'custom-websites', title: 'Custom Websites', desc: 'Bespoke, responsive websites prioritizing user experience, accessibility, and performance across all devices.', icon: Globe, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
-  { id: 'product-showcase', title: 'Product Showcases', desc: 'Compelling online product presentations with high-quality visuals, interactive elements, and conversion-optimized layouts.', icon: Monitor, color: 'text-green-400', bg: 'bg-green-500/20' },
-  { id: 'secure-payments', title: 'Secure Payments', desc: 'Enterprise-grade payment gateways that protect customer data, build trust, and ensure PCI compliance.', icon: Shield, color: 'text-pink-400', bg: 'bg-pink-500/20' },
+  { id: 'ecommerce', title: 'E-Commerce Solutions', desc: 'Sales-ready commerce platforms with secure checkout, inventory control, and conversion focus.', icon: ShoppingCart, color: 'text-purple-400', bg: 'bg-purple-500/20' },
+  { id: 'custom-websites', title: 'Custom Websites', desc: 'Responsive websites designed for usability, accessibility, and sustained performance.', icon: Globe, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'product-showcase', title: 'Product Showcases', desc: 'High-impact product pages that communicate value and improve buying decisions.', icon: Monitor, color: 'text-green-400', bg: 'bg-green-500/20' },
+  { id: 'secure-payments', title: 'Secure Payments', desc: 'Trusted payment integrations with strong security controls and compliance support.', icon: Shield, color: 'text-pink-400', bg: 'bg-pink-500/20' },
 ];
 
 const cloudDevopsCards = [
-  { id: 'cloud-migration', title: 'Cloud Migration', desc: 'Seamless transition from on-premise to cloud with zero downtime and optimized costs.', icon: Cloud, color: 'text-blue-400', bg: 'bg-blue-500/20' },
-  { id: 'cicd', title: 'CI/CD Pipelines', desc: 'Automated build, test, and deployment pipelines for rapid, reliable software delivery.', icon: Layers, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
-  { id: 'security', title: 'Security & Compliance', desc: 'Enterprise-grade security, encryption, and compliance with industry standards.', icon: Lock, color: 'text-orange-400', bg: 'bg-orange-500/20' },
-  { id: 'monitoring', title: 'Monitoring & Optimization', desc: '24/7 infrastructure monitoring, auto-scaling, and cost optimization.', icon: Activity, color: 'text-green-400', bg: 'bg-green-500/20' },
+  { id: 'cloud-migration', title: 'Cloud Migration', desc: 'Move workloads to cloud platforms with minimal disruption and controlled risk.', icon: Cloud, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'cicd', title: 'CI/CD Pipelines', desc: 'Automate build and release workflows to improve delivery speed and quality.', icon: Layers, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'security', title: 'Security & Compliance', desc: 'Protect infrastructure with policy-led security and standards-aligned controls.', icon: Lock, color: 'text-orange-400', bg: 'bg-orange-500/20' },
+  { id: 'monitoring', title: 'Monitoring & Optimization', desc: 'Continuous monitoring to improve uptime, scaling efficiency, and cloud cost usage.', icon: Activity, color: 'text-green-400', bg: 'bg-green-500/20' },
 ];
 
 const staffingCards = [
-  { id: 'talent-sourcing', title: 'Talent Sourcing', desc: 'We locate and attract skilled IT professionals, matching expertise with your organization\'s specific needs and culture.', icon: Search, color: 'text-blue-400', bg: 'bg-blue-500/20' },
-  { id: 'skill-assessment', title: 'Skill Assessment', desc: 'Rigorous evaluation of technical abilities, qualifications, and soft skills to ensure candidates exceed your requirements.', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
-  { id: 'staff-augmentation', title: 'Staff Augmentation', desc: 'Temporary or permanent staffing solutions, seamlessly integrating skilled professionals to enhance your team\'s capabilities.', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/20' },
+  { id: 'talent-sourcing', title: 'Talent Sourcing', desc: 'Identify and onboard qualified IT professionals aligned to your delivery needs.', icon: Search, color: 'text-blue-400', bg: 'bg-blue-500/20' },
+  { id: 'skill-assessment', title: 'Skill Assessment', desc: 'Evaluate candidates for technical depth, role fit, and execution readiness.', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/20' },
+  { id: 'staff-augmentation', title: 'Staff Augmentation', desc: 'Scale teams quickly with vetted talent for short-term or long-term engagement.', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/20' },
 ];
 
 const hitlSteps = [
-  { id: 'detect', title: 'AI Detects', desc: 'Camera/sensor captures event', icon: Cpu, color: 'text-blue-400' },
-  { id: 'alert', title: 'Alert Generated', desc: 'Weapon/face/pose identified', icon: AlertTriangle, color: 'text-orange-400' },
-  { id: 'review', title: 'HITL Review', desc: 'Operator validates in <30 seconds', icon: Eye, color: 'text-cyan-400' },
-  { id: 'escalation', title: 'Escalation', desc: 'Emergency/staff/lockdown triggered', icon: Phone, color: 'text-red-400' },
+  { id: 'detect', title: 'AI Detects', desc: 'Sensors capture and classify events', icon: Cpu, color: 'text-blue-400' },
+  { id: 'alert', title: 'Alert Generated', desc: 'Potential threat is flagged instantly', icon: AlertTriangle, color: 'text-orange-400' },
+  { id: 'review', title: 'HITL Review', desc: 'Operator validates in under 30 seconds', icon: Eye, color: 'text-cyan-400' },
+  { id: 'escalation', title: 'Escalation', desc: 'Response protocol is triggered in real time', icon: Phone, color: 'text-red-400' },
 ];
 
 const industries = [
@@ -178,7 +178,7 @@ export default function Services() {
         <ServiceSection
           title="Software Development"
           subtitle="Tailored Solutions That Scale With Your Business"
-          description="From Idea to Production-Ready Software. We build full-stack applications, APIs, and automation systems tailored to your exact business needs."
+          description="From concept to production-ready platforms for mission-critical business operations."
           cards={softwareDevCards}
           collapseKey="software-development"
         />
@@ -193,7 +193,7 @@ export default function Services() {
         <ServiceSection
           title="Cloud & DevOps Services"
           subtitle="Infrastructure That Scales When You Do"
-          description="Scalable, secure cloud infrastructure designed for modern enterprises."
+          description="Secure, scalable cloud operations designed for reliability and release velocity."
           cards={cloudDevopsCards}
           collapseKey="cloud-devops"
         />
