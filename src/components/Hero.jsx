@@ -2,80 +2,92 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const serviceChips = [
-  'Custom Software',
-  'Website & E-Commerce',
-  'HITL AI Operations',
-  'Cloud & DevOps',
+const bgImages = [
+  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&q=80',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80',
+  'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80',
 ];
 
 export default function Hero() {
   const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const text = 'Transform Your Business with Technology That Delivers';
-
+  
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
       if (index <= text.length) {
         setDisplayText(text.slice(0, index));
-        index += 1;
+        index++;
       } else {
         clearInterval(timer);
       }
-    }, 48);
+    }, 60);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % bgImages.length);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-[#040812]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(56,189,248,0.16),transparent_32%),radial-gradient(circle_at_85%_25%,rgba(59,130,246,0.16),transparent_35%),radial-gradient(circle_at_55%_75%,rgba(14,165,233,0.14),transparent_38%)]" />
-      <div className="absolute inset-0 [background-image:linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:46px_46px] opacity-20" />
+    <section id="home" className="relative min-h-screen overflow-hidden bg-[#030508]">
+      {bgImages.map((img, index) => (
+        <div
+          key={index}
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url(${img})`,
+            opacity: index === currentIndex ? 0.8 : 0,
+            transition: 'opacity 1.5s ease-in-out'
+          }}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/60 via-[#030508]/40 to-[#030508]" />
+      
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        {bgImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              currentIndex === index ? 'bg-blue-500 w-8' : 'bg-white/30'
+            }`}
+          />
+        ))}
+      </div>
 
-      <motion.div
-        aria-hidden="true"
-        animate={{ x: [0, 22, 0], y: [0, -18, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-20 left-[8%] h-44 w-44 rounded-full bg-cyan-400/20 blur-3xl"
-      />
-      <motion.div
-        aria-hidden="true"
-        animate={{ x: [0, -20, 0], y: [0, 16, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-16 right-[10%] h-56 w-56 rounded-full bg-blue-500/20 blur-3xl"
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-5xl text-center"
+          transition={{ duration: 1 }}
+          className="text-center px-4"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md shadow-sm shadow-cyan-400/10">
-            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-gray-200 text-sm font-normal">Based in Secunderabad, India</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-2 bg-white/5 border border-white/10 rounded-full">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-gray-300 text-sm font-normal opacity-90">Based in Secunderabad, India</span>
           </div>
 
-          <h1 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-white leading-tight">
-            <span className="text-cyan-300">{displayText}</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight">
+            <span className="text-cyan-400">{displayText}</span>
           </h1>
 
-          <p className="mt-6 text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Software Development, Cloud Solutions, HITL AI Operations, and IT Staffing delivered with reliability, speed, and long-term business focus.
-          </p>
-
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 mt-8"
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="flex flex-wrap justify-center gap-3 mt-6"
           >
-            {serviceChips.map((item) => (
+            {['Custom Software', 'Website & E-Commerce', 'HITL AI Operations', 'Cloud & DevOps'].map((item, index) => (
               <motion.div
-                key={item}
-                whileHover={{ scale: 1.05 }}
-                className="px-4 py-2 rounded-full text-sm font-medium text-white bg-white/30 backdrop-blur-md border border-cyan-300/40 shadow-md shadow-[0_0_15px_rgba(255,255,255,0.15)] hover:bg-white/40 hover:shadow-lg transition-all duration-300"
+                key={index}
+                whileHover={{ scale: 1.03 }}
+                className="px-4 py-2 rounded-full text-sm font-medium text-center bg-white/30 backdrop-blur-md border border-cyan-300/40 text-white shadow-md shadow-[0_0_15px_rgba(255,255,255,0.15)] hover:bg-white/40 hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 {item}
               </motion.div>
@@ -83,24 +95,20 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+            transition={{ delay: 0.7, duration: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-6"
           >
             <motion.button
               onClick={() => navigate('/services')}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_10px_30px_rgba(6,182,212,0.35)] transition-all"
+              className="px-8 py-4 bg-transparent text-white font-semibold rounded-full border border-white hover:scale-105 transition-transform"
             >
               View Services
             </motion.button>
             <motion.button
               onClick={() => navigate('/contact')}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-3.5 rounded-full text-white font-medium border border-white/30 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all"
+              className="px-8 py-4 rounded-full bg-transparent text-white font-medium border border-white hover:bg-white/10 transition-colors"
             >
               Let's Talk
             </motion.button>

@@ -36,26 +36,26 @@ const SocialIcon = ({ type }) => {
 
 export default function TopInfoBar() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-[#070d1a]/70 border-b border-white/10 backdrop-blur-lg">
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-white/10 border-b border-white/10 backdrop-blur-md">
       <div className="max-w-7xl mx-auto h-10 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-normal whitespace-nowrap overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 font-normal whitespace-nowrap overflow-x-auto">
           <a href="mailto:ethihaastech@gmail.com" className="hover:text-white transition-colors inline-flex items-center gap-1.5">
             <Mail className="w-3.5 h-3.5" />
             <span>ethihaastech@gmail.com</span>
           </a>
-          <span className="text-slate-500">|</span>
+          <span className="text-gray-400">|</span>
           <a href="tel:+917672003606" className="hover:text-white transition-colors inline-flex items-center gap-1.5">
             <Phone className="w-3.5 h-3.5" />
             <span>+91 7672003606</span>
           </a>
-          <span className="text-slate-500">|</span>
+          <span className="text-gray-400">|</span>
           <span className="inline-flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" />
             <span>Secunderabad, India</span>
           </span>
         </div>
 
-        <div className="flex items-center gap-3 text-slate-400 shrink-0">
+        <div className="flex items-center gap-3 text-gray-400 shrink-0">
           {socialLinks.map((item) => (
             <a
               key={item.name}

@@ -73,9 +73,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-10 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-[#081122]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)]'
-          : 'bg-[#081122]/55 backdrop-blur-lg border-b border-white/5'
+        isScrolled ? 'bg-[#0a0f1c]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-black/20' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -96,7 +94,7 @@ export default function Navbar() {
                       if (isIndustries) { setIndustriesOpen(!industriesOpen); setServicesOpen(false); }
                     }}
                     className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                      location.pathname === link.path ? 'text-cyan-300' : 'text-slate-300 hover:text-white'
+                      location.pathname === link.path ? 'text-white' : 'text-gray-400 hover:text-white'
                     }`}
                   >
                     {link.name}
@@ -106,28 +104,28 @@ export default function Navbar() {
                   <button
                     onClick={() => handleNavClick(link.path)}
                     className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                      location.pathname === link.path ? 'text-cyan-300' : 'text-slate-300 hover:text-white'
+                      location.pathname === link.path ? 'text-white' : 'text-gray-400 hover:text-white'
                     }`}
                   >
                     {link.name}
                     {location.pathname === link.path && (
-                      <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-cyan-300 rounded-full" layoutId="navDot" />
+                      <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full" layoutId="navDot" />
                     )}
                   </button>
                 )}
                 {isServices && servicesOpen && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-48 bg-[#0b1426]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_18px_40px_rgba(0,0,0,0.45)] overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-48 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
                     {servicesDropdown.map((item) => (
-                      <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-colors">
+                      <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
                         {item.name}
                       </button>
                     ))}
                   </motion.div>
                 )}
                 {isIndustries && industriesOpen && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-40 bg-[#0b1426]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_18px_40px_rgba(0,0,0,0.45)] overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 mt-2 w-40 bg-[#0a0f1c] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
                     {industriesDropdown.map((item) => (
-                      <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-colors">
+                      <button key={item.name} onClick={() => handleNavClick(item.path)} className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
                         {item.name}
                       </button>
                     ))}
@@ -139,10 +137,10 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button onClick={() => handleNavClick('/contact')} className="hidden md:block px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-[0_8px_22px_rgba(6,182,212,0.35)] hover:shadow-[0_12px_28px_rgba(6,182,212,0.45)] transition-all hover:scale-105">
+          <button onClick={() => handleNavClick('/contact')} className="hidden md:block px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-105">
             Get Started
           </button>
-          <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="md:hidden p-2 text-slate-200 hover:bg-white/10 rounded-lg transition-colors">
+          <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors">
             {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -150,10 +148,10 @@ export default function Navbar() {
 
       <AnimatePresence>
         {isMobileOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-[#0b1426]/95 backdrop-blur-xl border-t border-white/10">
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-[#0a0f1c]/95 backdrop-blur-xl border-t border-white/5">
             <div className="px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
-                <button key={link.name} onClick={() => handleNavClick(link.path)} className={`text-left px-4 py-3 rounded-lg transition-colors ${location.pathname === link.path ? 'text-cyan-300 bg-white/10' : 'text-slate-300 hover:text-white hover:bg-white/10'}`}>
+                <button key={link.name} onClick={() => handleNavClick(link.path)} className={`text-left px-4 py-3 rounded-lg transition-colors ${location.pathname === link.path ? 'text-white bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}>
                   {link.name}
                 </button>
               ))}
