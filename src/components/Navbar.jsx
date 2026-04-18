@@ -5,11 +5,11 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../assets/logo.png';
 
 const servicesDropdown = [
-  { name: 'Software Development', path: '/services' },
-  { name: 'Website Development', path: '/services' },
-  { name: 'Cloud & DevOps', path: '/services' },
-  { name: 'IT Staffing & Training', path: '/services' },
-  { name: 'HITL AI Operations', path: '/services' },
+  { name: 'Software Development', path: '/services#software-development' },
+  { name: 'Website Development', path: '/services#website-development' },
+  { name: 'Cloud & DevOps', path: '/services#cloud-devops' },
+  { name: 'IT Staffing & Training', path: '/services#it-staffing' },
+  { name: 'HITL AI Operations', path: '/services#hitl-ai-ops' },
 ];
 
 const industriesDropdown = [
@@ -65,6 +65,8 @@ export default function Navbar() {
   const handleNavClick = (path) => {
     navigate(path);
     setIsMobileOpen(false);
+    setServicesOpen(false);
+    setIndustriesOpen(false);
   };
 
   return (

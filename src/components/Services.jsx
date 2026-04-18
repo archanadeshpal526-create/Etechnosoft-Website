@@ -68,7 +68,7 @@ function ServiceSection({ title, subtitle, description, cards, collapseKey }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={collapseKey === 'software-development' ? 'mt-12' : 'mt-20'}
+      className={`${collapseKey === 'software-development' ? 'mt-12' : 'mt-20'} scroll-mt-32`}
       id={collapseKey}
     >
       <div className="text-center mb-8">
@@ -107,7 +107,8 @@ function HitlSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="mt-20"
+      className="mt-20 scroll-mt-32"
+      id="hitl-ai-ops"
     >
       <div className="text-center mb-8">
         <h3 className="text-2xl md:text-3xl font-bold text-white">Human-in-the-Loop AI Operations</h3>
