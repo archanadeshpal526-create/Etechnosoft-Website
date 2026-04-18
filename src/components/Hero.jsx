@@ -61,14 +61,14 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center px-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mt-2 mb-3">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mt-1 mb-3">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-gray-300 text-sm font-normal opacity-90">Based in Secunderabad, India</span>
           </div>
