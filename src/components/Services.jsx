@@ -68,7 +68,7 @@ function ServiceSection({ title, subtitle, description, cards, collapseKey }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="mt-20"
+      className={collapseKey === 'software-development' ? 'mt-12' : 'mt-20'}
       id={collapseKey}
     >
       <div className="text-center mb-8">
