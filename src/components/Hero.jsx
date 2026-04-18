@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowRight, MessageCircle } from 'lucide-react';
 
 const heroVideoSrc = '/hero-bg.mp4';
 
@@ -83,14 +83,20 @@ export default function Hero() {
           >
             <motion.button
               onClick={() => navigate('/services')}
-              className="px-8 py-4 bg-transparent text-white font-semibold rounded-full border border-white hover:scale-105 transition-transform"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-full border border-cyan-300/40 shadow-[0_10px_28px_rgba(6,182,212,0.35)] hover:shadow-[0_14px_32px_rgba(6,182,212,0.5)] transition-all duration-300"
             >
               View Services
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
             <motion.button
               onClick={() => navigate('/contact')}
-              className="px-8 py-4 rounded-full bg-transparent text-white font-medium border border-white hover:bg-white/10 transition-colors"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white font-medium border border-white/35 hover:bg-white/16 hover:border-cyan-300/50 hover:shadow-[0_10px_24px_rgba(0,0,0,0.25)] transition-all duration-300"
             >
+              <MessageCircle className="w-4 h-4 text-cyan-200" />
               Let's Talk
             </motion.button>
           </motion.div>
