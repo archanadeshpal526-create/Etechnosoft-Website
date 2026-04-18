@@ -38,23 +38,23 @@ const challenges = [
 
 export default function Challenges() {
   return (
-    <section id="challenges" className="py-16 bg-[#030508]">
+    <section id="challenges" className="py-20 bg-[#07101f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold">
             <span className="text-white">Challenges</span>{' '}
             <span className="text-cyan-400">We Solve</span>
           </h2>
-          <p className="text-cyan-400 text-lg mt-2">Helping businesses overcome technology, talent, and operational barriers.</p>
+          <p className="text-slate-300 text-lg mt-3">Helping businesses overcome technology, talent, and operational barriers.</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {challenges.map((challenge, index) => (
             <motion.div
               key={challenge.id}
@@ -63,15 +63,15 @@ export default function Challenges() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-cyan-500/30 transition-all cursor-pointer group"
+              className="h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.25)] hover:bg-white/10 hover:border-cyan-400/40 hover:shadow-[0_14px_42px_rgba(0,0,0,0.32)] transition-all cursor-pointer group flex flex-col"
             >
-              <div className={`w-12 h-12 ${challenge.bg} rounded-lg flex items-center justify-center mb-4`}>
-                <challenge.icon className={`w-6 h-6 ${challenge.color}`} />
+              <div className={`w-12 h-12 ${challenge.bg} rounded-xl flex items-center justify-center mb-5`}>
+                <challenge.icon className={`w-5 h-5 ${challenge.color}`} />
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                 {challenge.title}
               </h4>
-              <p className="text-gray-400 text-sm">{challenge.description}</p>
+              <p className="text-slate-300/85 text-sm leading-relaxed mt-auto">{challenge.description}</p>
             </motion.div>
           ))}
         </div>
