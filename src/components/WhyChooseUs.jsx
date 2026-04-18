@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.55 }}
           className="text-center mb-12"
         >
-          <span className="inline-flex -mt-2 px-3 py-1 rounded-full border border-cyan-300/30 bg-cyan-300/10 text-cyan-200 text-xs font-semibold tracking-[0.08em] uppercase">
+          <span className="inline-flex relative -top-1 px-3 py-1 rounded-full border border-cyan-300/30 bg-cyan-300/10 text-cyan-200 text-xs font-semibold tracking-[0.08em] uppercase">
             Why Choose Us
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-white tracking-tight">
