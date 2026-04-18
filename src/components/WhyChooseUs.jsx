@@ -45,28 +45,43 @@ export default function WhyChooseUs() {
   const ref = useRef(null);
 
   return (
-    <section ref={ref} id="why-us" className="pt-8 pb-16 bg-[#030508]">
+    <section ref={ref} id="why-us" className="py-24 bg-[#040b18]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="text-center mb-12"
+        >
+          <span className="inline-flex px-3 py-1 rounded-full border border-cyan-300/30 bg-cyan-300/10 text-cyan-200 text-xs font-semibold tracking-[0.14em] uppercase">
+            Why Choose Us
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-white tracking-tight">
+            What Makes Ethihaas Technosoft Different
+          </h2>
+        </motion.div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="h-full p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-cyan-500/30 transition-all cursor-pointer group flex flex-col justify-between items-start text-left"
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="h-full p-6 bg-slate-100/5 border border-slate-200/15 rounded-2xl shadow-[0_10px_24px_rgba(0,0,0,0.25)] hover:shadow-[0_16px_30px_rgba(0,0,0,0.35)] hover:bg-slate-100/10 transition-all duration-300 cursor-pointer group flex flex-col justify-between items-start text-left"
             >
               <div className="flex flex-col items-start space-y-3">
-                <div className={`w-14 h-14 ${feature.bg} rounded-lg flex items-center justify-center`}>
+                <div className={`w-14 h-14 ${feature.bg} rounded-xl flex items-center justify-center border border-white/10`}>
                   <feature.icon className={`w-7 h-7 ${feature.color}`} />
                 </div>
                 <h3 className="text-4xl font-bold text-white">{feature.highlight}</h3>
-                <h4 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                <h4 className="text-lg font-semibold text-white group-hover:text-cyan-300 transition-colors">
                   {feature.title}
                 </h4>
-                <p className="text-gray-400 text-sm">{feature.description}</p>
+                <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
               </div>
             </motion.div>
           ))}
