@@ -73,7 +73,7 @@ export default function Hero() {
             <span className="text-gray-300 text-sm font-normal opacity-90">Based in Secunderabad, India</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight max-w-4xl mx-auto leading-tight">
             <span className="text-cyan-400">{displayText}</span>
           </h1>
 
