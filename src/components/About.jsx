@@ -13,7 +13,7 @@ const metrics = [
 
 const aboutContent = {
   title: 'Who We Are',
-  text: 'Ethihaas Technosoft propels businesses forward in the digital age. Based in Secunderabad, India, we deliver innovative software solutions, cloud services, IT staffing, and specialized AI operations.\n\nOur flagship capability is Human-in-the-Loop (HITL) services — providing 24/7 human validation for safety-critical AI systems across healthcare, education, transportation, and security.\n\nWith a team of skilled professionals and deep domain expertise, we bridge the gap between cutting-edge AI automation and reliable human decision-making.',
+  text: 'Ethihaas Technosoft is a Secunderabad-based technology partner focused on delivering measurable business outcomes through modern engineering services.\n\nWe design and build scalable software products, modernize cloud environments, and provide dependable IT staffing to strengthen delivery teams with the right technical expertise.\n\nOur Human-in-the-Loop (HITL) AI operations combine automation with real-time human validation to improve accuracy, reduce risk, and support safety-critical workflows.',
 };
 
 export default function About() {
