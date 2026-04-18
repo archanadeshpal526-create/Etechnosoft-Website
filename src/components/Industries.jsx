@@ -36,9 +36,9 @@ export default function Industries() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Industries We <span className="text-cyan-400 font-bold">Serve</span>
-          </h2>
+          <span className="inline-flex px-3 py-1 rounded-full border border-cyan-300/30 bg-cyan-300/10 text-cyan-200 text-xs font-semibold tracking-[0.14em] uppercase">
+            Industries We Serve
+          </span>
           <p className="text-cyan-400 text-lg mt-2">Deep Domain Expertise Across Verticals</p>
         </motion.div>
 

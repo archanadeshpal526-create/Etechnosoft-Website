@@ -168,9 +168,9 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            <span className="text-cyan-400 font-bold">Our Services</span>
-          </h2>
+          <span className="inline-flex px-3 py-1 rounded-full border border-cyan-300/30 bg-cyan-300/10 text-cyan-200 text-xs font-semibold tracking-[0.14em] uppercase">
+            Our Services
+          </span>
         </motion.div>
 
         <ServiceSection
