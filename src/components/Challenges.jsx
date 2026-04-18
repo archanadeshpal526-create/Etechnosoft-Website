@@ -51,7 +51,7 @@ export default function Challenges() {
             <span className="text-white">Challenges</span>{' '}
             <span className="text-cyan-400">We Solve</span>
           </h2>
-          <p className="text-cyan-400 text-lg mt-2">Helping businesses overcome technology, talent, and operational barriers.</p>
+          <p className="text-white text-lg mt-2">Helping businesses overcome complex technology, talent, and operational challenges with scalable and reliable solutions.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
