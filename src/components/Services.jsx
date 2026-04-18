@@ -154,7 +154,8 @@ export default function Services() {
       const id = location.hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const top = element.getBoundingClientRect().top + window.pageYOffset - 140;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     }
   }, [location]);

@@ -63,7 +63,19 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const handleNavClick = (path) => {
-    navigate(path);
+    const [targetPath, targetHash] = path.split('#');
+
+    if (targetHash && location.pathname === targetPath) {
+      const element = document.getElementById(targetHash);
+      if (element) {
+        const top = element.getBoundingClientRect().top + window.pageYOffset - 140;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      window.history.replaceState(null, '', `${targetPath}#${targetHash}`);
+    } else {
+      navigate(path);
+    }
+
     setIsMobileOpen(false);
     setServicesOpen(false);
     setIndustriesOpen(false);
