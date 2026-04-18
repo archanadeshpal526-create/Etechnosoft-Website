@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Code2, Settings, Zap, Globe, ShoppingCart, Shield, Monitor, Cpu, Layers, Cloud, Lock, Activity, Users, Search, CheckCircle, AlertTriangle, Phone, Eye, ArrowRight, Car, HardHat, Signal, Gamepad2, Heart, Star } from 'lucide-react';
+import { Code2, Settings, Zap, Globe, ShoppingCart, Shield, Monitor, Cpu, Layers, Cloud, Lock, Activity, Users, Search, CheckCircle, AlertTriangle, Phone, Eye, Car, HardHat, Signal, Gamepad2, Heart, Star } from 'lucide-react';
 
 const softwareDevCards = [
   { id: 'tailored', title: 'Tailored Solutions', desc: 'Web and mobile solutions built around your core workflows and business priorities.', icon: Code2, color: 'text-blue-400', bg: 'bg-blue-500/20' },
@@ -129,9 +129,6 @@ function HitlSection() {
             </div>
             <h4 className="text-white font-semibold">{step.title}</h4>
             <p className="text-gray-400 text-sm mt-1">{step.desc}</p>
-            {index < hitlSteps.length - 1 && (
-              <ArrowRight className="w-5 h-5 text-gray-600 mx-auto mt-4 hidden md:block" />
-            )}
           </motion.div>
         ))}
       </div>
