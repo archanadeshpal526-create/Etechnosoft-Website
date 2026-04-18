@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import Logo from '../assets/logo.png';
 
 const SocialIcon = ({ type }) => {
@@ -76,9 +77,18 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <div className="space-y-3 text-sm text-gray-500">
-              <p>ethihaastech@gmail.com</p>
-              <p>+91 7672003606</p>
-              <p>Secunderabad, India</p>
+              <p className="flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                <span>ethihaastech@gmail.com</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                <span>+91 7672003606</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                <span>Secunderabad, India</span>
+              </p>
             </div>
           </div>
         </div>
