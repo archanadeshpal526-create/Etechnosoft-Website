@@ -47,7 +47,7 @@ const contactItems = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-[radial-gradient(circle_at_15%_20%,rgba(6,182,212,0.12),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.14),transparent_38%),#030508]">
+    <section id="contact" className="pt-16 pb-24 bg-[radial-gradient(circle_at_15%_20%,rgba(6,182,212,0.12),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.14),transparent_38%),#030508]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 26 }}
