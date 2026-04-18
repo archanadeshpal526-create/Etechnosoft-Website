@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="text-center px-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mt-2 mb-3">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-gray-300 text-sm font-normal opacity-90">Based in Secunderabad, India</span>
           </div>
