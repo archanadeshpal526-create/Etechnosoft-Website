@@ -39,7 +39,9 @@ export default function Industries() {
           <span className="inline-flex px-3 py-1 rounded-full border border-cyan-300/30 bg-cyan-300/10 text-cyan-200 text-xs font-semibold tracking-[0.14em] uppercase">
             Industries We Serve
           </span>
-          <p className="text-cyan-400 text-lg mt-2">Deep Domain Expertise Across Verticals</p>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-white tracking-tight">
+            Deep Domain Expertise Across Verticals
+          </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
