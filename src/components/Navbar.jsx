@@ -72,18 +72,18 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-10 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-9 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'bg-[#081122]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)]'
           : 'bg-[#081122]/55 backdrop-blur-lg border-b border-white/5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
         <button onClick={() => handleNavClick('/')} className="flex items-center gap-2">
-          <img src={Logo} alt="Ethihaas" className="h-12" />
+          <img src={Logo} alt="Ethihaas" className="h-11" />
         </button>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1.5">
           {navLinks.map((link) => {
             const isServices = link.name === 'Services';
             const isIndustries = link.name === 'Industries';
@@ -95,7 +95,7 @@ export default function Navbar() {
                       if (isServices) { setServicesOpen(!servicesOpen); setIndustriesOpen(false); }
                       if (isIndustries) { setIndustriesOpen(!industriesOpen); setServicesOpen(false); }
                     }}
-                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                    className={`flex items-center gap-1 px-3.5 py-2 text-sm font-medium transition-all duration-300 ${
                       location.pathname === link.path ? 'text-cyan-300' : 'text-slate-300 hover:text-white'
                     }`}
                   >
@@ -105,13 +105,13 @@ export default function Navbar() {
                 ) : (
                   <button
                     onClick={() => handleNavClick(link.path)}
-                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                    className={`relative px-3.5 py-2 text-sm font-medium transition-all duration-300 ${
                       location.pathname === link.path ? 'text-cyan-300' : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     {link.name}
                     {location.pathname === link.path && (
-                      <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-cyan-300 rounded-full" layoutId="navDot" />
+                      <motion.div className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-cyan-300 rounded-full" layoutId="navDot" />
                     )}
                   </button>
                 )}
